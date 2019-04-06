@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 okt = Okt()
 ctx = "C:/Users/ezen/PycharmProjects/syyoo-2/data/"
-filename = ctx + 'kr-Report_2018.txt'
+filename = ctx + 'KakaoTalkChats2.txt'
 filename2 = ctx + 'stopwords.txt'
 font = ctx + "D2Coding.ttf";
 
@@ -43,11 +43,9 @@ texts = [text for text in tokens if text not in stopwords ]
 freqtxt = pd.Series(dict(FreqDist(texts))).sort_values(ascending=False)
 print(freqtxt[:30])
 
-okt.pos('가치창출')
-okt.pos('갤러시') #오타는 갤럭시로 처리
 
 wcloud = WordCloud(font, relative_scaling=0.2, background_color='white').generate(" ".join(texts))
-plt.figure(figsize=(12,12))
+plt.figure(figsize=(140,80))
 plt.imshow(wcloud, interpolation='bilinear')
 plt.axis("off")
 plt.show()
